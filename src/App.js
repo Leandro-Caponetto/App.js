@@ -1,19 +1,21 @@
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
+import { MoviesGrid } from "./components/MoviesGrid";
+import styles from "./App.module.css";
 
 
-function App(){
+
+
+const App = () =>{
     return (
-        <>
-        <Header/>
-        <Main/>
-        <Footer/>
-        
-        
-        </>
-        
-    )
-  }
+        <div>
+      <header>
+        <h1 className={styles.title}>Peliculas Leandro</h1>
+      </header>
+      <main>
+        <MoviesGrid />
+      </main>
+    </div>
+  );
 
-  export default App;
+}
+
+export default App;
