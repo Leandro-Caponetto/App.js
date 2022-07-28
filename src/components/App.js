@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Footer from "./Footer"
-import Header from "./Header"
-import Main from "./Main";
+import Header from "./CartWidget"
+import Main from "./ItemListContainer";
+import Cards from "./Cards"
 import Button from 'react-bootstrap/Button';
+import  './App.css'
 
 const App = () => {
     
@@ -35,7 +37,15 @@ const App = () => {
                 
             
             </Main>
+                <div className="App">
+                    <Cards />
+                    
+                </div>
+                
+                
                 <div className="cont">
+
+                    
                     <Button onClick={disminuirContador} variant="primary">-</Button>{' '}
                     <Button onClick={resetearContador} variant="primary">Restaurar</Button>{' '}
 
