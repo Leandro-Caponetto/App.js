@@ -1,11 +1,11 @@
-import Nav from "./NavBar"
+import NavBar from "./NavBar"
 
-const Header = ({contador}) => {
+const Cart = ({contador}) => {
     return (
         <header className="header">
 
             <img className="header__image" src= '/logo192.png' alt="logo" />
-            <Nav
+            <NavBar
                 type="header"
             />
            
@@ -22,4 +22,4 @@ const Header = ({contador}) => {
     )
 }
 
-export default Header
+export default Cart
