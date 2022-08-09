@@ -1,9 +1,11 @@
-import ItemListContainer from './ItemListContainer/ItemListContainer'
-import ItemList from "./ItemList/ItemList";
-import Cards from "./Cards"
-
-
+import Cart from "./NavBar/CartWidget"
+import ItemDetailContainer from "./ItemDetailContainer"
+import ItemListContainer from './ItemListContainer'
+import Presentacional from "./Presentacional"
+import { BrowserRouter as Router} from "react-router-dom";
+import {DataProvider} from './context/DataProvider';
 import  './App.css'
+
 
 
 const App = () => {
@@ -11,28 +13,26 @@ const App = () => {
    
 
     return (
-        <>
-             <ItemListContainer/>
-            
-            
-            
-            <ItemList name={"Leandro Caponetto"} />
-            
-                <div className="App">
-                    <Cards />
-                    
-                </div>
-               
+
+
+        <DataProvider>
+        <div>
+            <Router>
+                <Cart />
+                <Presentacional titulo={"Leandro Caponetto"}/>
                 
-               
-            
-            
-           
-            
-        </>
+                    
+                <ItemDetailContainer/>
 
+                
+                <ItemListContainer/>
+            </Router>
+                      
+        </div>
 
-    )
+         </DataProvider>
+
+    );
 }
 
 export default App;
