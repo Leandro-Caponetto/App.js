@@ -1,24 +1,23 @@
-import Detail  from "./Detail"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 
+const ItemDetailContainer = () => {
 
-function ItemDetail({productos}) {
-  return (
-    <ul>
+    const r = useParams() // es un hook que se actualiza si estas en el mismo componente y cambia la url y siempre da un objeto a cambio
 
-            
-            {productos.map((producto) => {
-                return <Detail 
-                    key={producto.id}
-				    title={producto.title}
-				    image={producto.image}
-				    category={producto.category}
-				    precio={producto.price}
-				    id={producto.id}/>
+     useEffect(() => {})
+    
+    useEffect(() => {},[])
+    useEffect(() => {},[r.id]) 
 
+    useEffect(()=>{
 
-            })}
+    })
 
-    </ul>
-  )
+    return (
+        <div>ItemDetailContainer</div>
+    )
 }
-export default ItemDetail
+
+
+export default ItemDetailContainer

@@ -1,72 +1,29 @@
-import { useEffect, useState  } from "react"
-import ItemDetail from "./ItemDetail"
- 
+/* eslint-disable no-unused-vars */
+import { useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
-const data = [
-    {
-        id: 2,
-        title: "Nike Dunk Low Off-White Pine Green",
-        price: 16304,
-        image: require('./img/images/img02.jpg'),
-        category: "nike",
-        img1: "https://stockx-360.imgix.net/Nike-Dunk-Low-Off-White-Pine-Green/Images/Nike-Dunk-Low-Off-White-Pine-Green/Lv2/img",
-        img2: ".jpg?auto=format,compress&q=90&updated_at=1606319825&w=1000",
-        cantidad: 1
-    }
-]
+const ItemDetailContainer = () => {
 
-function ItemDetailContainer() {
-
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState([true])
-  
+    const r = useParams() 
+    / useEffect(() => {})
     
+    useEffect(() => {},[])
+    useEffect(() => {},[r.id]) 
+
     useEffect(()=>{
-
-        const pedido = new Promise((res,rej)=>{
-            setTimeout(()=>{
-                
-                res({
-                    id: 2,
-                    title: "Nike Dunk Low Off-White Pine Green",
-                    price: 16304,
-                    image: require('./img/images/img02.jpg'),
-                    category: "nike",
-                    img1: "https://stockx-360.imgix.net/Nike-Dunk-Low-Off-White-Pine-Green/Images/Nike-Dunk-Low-Off-White-Pine-Green/Lv2/img",
-                    img2: ".jpg?auto=format,compress&q=90&updated_at=1606319825&w=1000",
-                    cantidad: 1
-                })
-                    
-                  
-            })
-        },2000)
-
-        pedido.then((resultado)=>{
-           
-            console.log({resultado})
-            setProductos(data)
-            setLoading(false)
+       /*  fetch("")
+        .then(()=>{
+            navigate("/algunaurl")
         })
-        pedido.catch((error)=>{
-            console.log("termino el pedido mal ")
-        })
-        pedido.finally(()=>{
-            console.log("termino el pedido ")
-        })
-    },[])
+        .catch(()=>{
+            console.log("error")
+        }) */
+    })
 
-
-    if(loading){
-        return (
-            <p>Cargando...</p>
-        )
-    }else{
-        return (
-            <ItemDetail productos={productos}/>
-        )
-    }
-   
-    
-  
+    return (
+        <div>ItemDetailContainer</div>
+    )
 }
+
+
 export default ItemDetailContainer

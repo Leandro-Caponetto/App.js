@@ -1,32 +1,29 @@
 import NavBar from "./NavBar"
+import { Link } from "react-router-dom"
 
 
 
-const Cart = ({contador}) => {
+const Cart = () => {
+    
+
+    
+    
+ 
     return (
+        
+             
         <header className="header">
-
-            <img className="header__image" src= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png' alt="logo" />
-            
-           
-            
-            
-            <NavBar
-                type="header"
-            />
-            <div>
-                <span className="material-symbols-outlined ">
-                    shopping_cart
-                </span>
-                <p>{contador}</p>
-
-            </div>
-            
-            
-            
-           
+            <Link to="/">
+                <h1 className="header__titulo" >TopShop</h1>
+            </Link>
+            <NavBar type="header" />
         </header>
     )
+            
+            
+           
+        
+   
 }
 
 export default Cart

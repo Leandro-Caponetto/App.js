@@ -1,21 +1,12 @@
-import Item from './Item'
-import './ItemList.css'
+import Item from "./Item"
 
-
-function ItemList({productos}) {
-
-  
-  return (
-      <ul>
-
-        {productos.map((producto) => {
-            return <Item producto={producto}/>
-
-
-          })}
-
-      </ul>
-
-  )
+const ItemList = ({ productos }) => {
+    return (
+        <section className="items">
+            {productos.map((producto) => {
+                return <Item key={producto.id} producto={producto}/>
+            })}
+        </section>
+    )
 }
 export default ItemList

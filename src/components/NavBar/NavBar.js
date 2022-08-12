@@ -1,13 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+import {  NavLink } from "react-router-dom"
+
 
 const Nav = () => {
     
       return (
-        <nav className="nav">
-          <a href="#">Inicio</a>
-          <a href="#">Productos</a>
-          <a href="#">Talle</a>
-        </nav>
+        <nav>
+        <NavLink to="/categoria/electronics">Inicio</NavLink>
+        <NavLink to="/categoria/jewelery">Productos</NavLink>
+        <NavLink to="/cart">
+          <span className="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </NavLink>
+      </nav>
+      
       )
     
   
