@@ -1,23 +1,15 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
 
-const ItemDetailContainer = () => {
+import ItemCount from './ItemCount';
 
-    const r = useParams() // es un hook que se actualiza si estas en el mismo componente y cambia la url y siempre da un objeto a cambio
 
-     useEffect(() => {})
-    
-    useEffect(() => {},[])
-    useEffect(() => {},[r.id]) 
-
-    useEffect(()=>{
-
-    })
-
+function ItemDetail( { productos }) {
     return (
-        <div>ItemDetailContainer</div>
+        <section className="items">
+            {productos.map((producto) => {
+                return <ItemCount key={producto.id} producto={producto}/>
+            })}
+        </section>
     )
 }
 
-
-export default ItemDetailContainer
+export default ItemDetail 

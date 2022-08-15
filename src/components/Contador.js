@@ -6,7 +6,7 @@ const Contador = ({ estadoPadre , customMethod , stock, initial, onAdd }) => {
     const [confirmed, setConfirmed] = useState(false)
 
     const sumar = () => {
-        //setEstadoHijo(estadoHijo + 1)
+        setEstadoHijo(estadoHijo + 1)
         setEstadoHijo(estadoHijo + 1)
     }
 

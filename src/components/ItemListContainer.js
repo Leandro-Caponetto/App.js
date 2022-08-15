@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import CustomLoader from "./CustomLoader"
 import ItemList from "./ItemList"
 import Page from "./Page"
+
 
 const productosIniciales = [
     {
@@ -39,7 +41,7 @@ const productosIniciales = [
 
 const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([])
+    const [productos, setProductos] = useState({})
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
 
@@ -48,7 +50,7 @@ const ItemListContainer = () => {
         const pedido = new Promise((res, rej) => {
             setTimeout(() => {
                 res(productosIniciales)
-            }, 3000)
+            }, 2000)
         })
 
         pedido.then((resultado) => {
