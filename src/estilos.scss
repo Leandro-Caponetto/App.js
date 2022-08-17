@@ -15,13 +15,13 @@ html , body , #root {
 
 body {
     background-color: #22243b;  
-    color:   #22243b;  
+    color: rgb(255, 255, 255);  
     font-family: Arial;  
     text-align: center;  
 }
 
 .header {
-    background-color: yellow;
+    background-color: red;
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
@@ -34,7 +34,7 @@ body {
     }
 
     a {
-        color: #22243b;  ;
+        color: white;
         text-decoration: none;
     }
 
@@ -56,6 +56,18 @@ main {
     text-align: left;
 }
 
+.inicio{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 9rem ;
+}
+.inicio h1{
+    font-size: 2.5rem;
+    color: #08a05c;
+}
+.inicio img{
+    width: 100%;
+}
 .item {
     color :#22243b;
     background-color: #fff;
@@ -85,6 +97,15 @@ main {
     }
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color: red;
+}
+
 
 
 .loader {
@@ -98,3 +119,8 @@ main {
 }
 
 ul {list-style: none;}
+
+.detail-image {
+    max-width: 300px;
+    height: auto;
+}

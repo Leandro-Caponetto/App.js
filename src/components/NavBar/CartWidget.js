@@ -1,11 +1,11 @@
 import NavBar from "./NavBar"
-import { Link } from "react-router-dom"
-
-
+import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { contexto } from "../CartContext"
 
 const Cart = () => {
     
-
+    const { cantidad } = useContext(contexto)
     
     
  
@@ -13,9 +13,12 @@ const Cart = () => {
         
              
         <header className="header">
-            <Link to="/">
-                <h1 className="header__titulo" >TopShop</h1>
-            </Link>
+            <NavLink to="/cart">
+            <span className="material-symbols-outlined">
+                shopping_cart
+            </span>
+            {cantidad}
+        </NavLink>
             <NavBar type="header" />
         </header>
     )

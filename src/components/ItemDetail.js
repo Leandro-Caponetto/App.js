@@ -1,15 +1,29 @@
+import { useContext } from "react"
+import Contador from "./Contador"
+import { contexto } from "./CartContext"
 
-import ItemCount from './ItemCount';
+const ItemDetail = ({ item }) => {
 
+    const { agregarProducto } = useContext(contexto)
 
-function ItemDetail( { productos }) {
+    const onAdd = (contador) => {
+        //console.log("Producto a comprar : ")
+        //console.log(item)
+        //console.log("Cantidad a comprar : ")
+        //console.log(contador)
+        item.cantidad = contador
+        //enviarAlCarrito(item)
+        agregarProducto(item)
+    }
+
     return (
-        <section className="items">
-            {productos.map((producto) => {
-                return <ItemCount key={producto.id} producto={producto}/>
-            })}
-        </section>
+        <div>
+            <h1>{item.title}</h1>
+            <img className="detail-image" src={item.image} alt="" />
+            <p>{item.description}</p>
+            <Contador onAdd={onAdd} />
+        </div>
     )
 }
 
-export default ItemDetail 
+export default ItemDetail

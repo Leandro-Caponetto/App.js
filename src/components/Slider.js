@@ -10,7 +10,7 @@ const Slider = ({estadoPadre,customMethod}) => {
 
     return (
         <>
-            {/* <p id="parrafo">El Contador va : {contador}</p> */}
+            { <p id="parrafo">El Contador va : {contador}</p> }
             <input onChange={handleChange} type="range" step={10} />
         </>
     )
