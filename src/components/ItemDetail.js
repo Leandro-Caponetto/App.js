@@ -17,9 +17,10 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <div>
-            <h1>{item.title}</h1>
+        <div className="item">
+            <h1 className="item__title">{item.title}</h1>
             <img className="detail-image" src={item.image} alt="" />
+            <p className="item__price">Precio : ${item.price}</p>
             <p>{item.description}</p>
             <Contador onAdd={onAdd} />
         </div>

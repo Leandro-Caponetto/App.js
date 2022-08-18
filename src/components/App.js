@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 
-import CartWidget from "./NavBar/CartWidget"
+import Header from "./Header"
 import Main from "./Main";
 import Provider from "./CartContext"
 
@@ -14,7 +14,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Provider titulo="hola">
-                <CartWidget />
+                <Header />
                 <Main/>
             </Provider>
            
