@@ -1,18 +1,16 @@
-import { useContext } from "react"
+
 import Contador from "./Contador"
-import { contexto } from "./CartContext"
+
+import {useCarrito} from "./CartContext"
 
 const ItemDetail = ({ item }) => {
 
-    const { agregarProducto } = useContext(contexto)
+    const { agregarProducto } = useCarrito()
 
     const onAdd = (contador) => {
-        //console.log("Producto a comprar : ")
-        //console.log(item)
-        //console.log("Cantidad a comprar : ")
-        //console.log(contador)
+       
         item.cantidad = contador
-        //enviarAlCarrito(item)
+       
         agregarProducto(item)
     }
 

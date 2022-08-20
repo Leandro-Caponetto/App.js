@@ -15,7 +15,9 @@ const App = () => {
         <BrowserRouter>
             <Provider titulo="hola">
                 <Header />
+
                 <Main/>
+                
             </Provider>
            
             

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react"
 
 const Contador = ({ estadoPadre , onAdd , stock, initial }) => {
@@ -20,10 +21,14 @@ const Contador = ({ estadoPadre , onAdd , stock, initial }) => {
 
     return (
         <div>
-            <p id="parrafo">El Contador va : {contador}</p>
-            <button onClick={sumar}>summar</button>
-            <button onClick={confirmar}>confirmar</button>
-            <button onClick={restar}>restar</button>
+            
+            <p id="parrafo" className={contador < 5 ? "todobien" : "todomal"}>
+                El {contador < 5 ? "contador" : "counter" } va : {contador}
+            </p>
+
+            <button onClick={restar} className="btn">-</button>
+            <button onClick={confirmar} className="btn">confirmar</button>
+            <button onClick={sumar} className="btn">+</button>
         </div>
     )
 }

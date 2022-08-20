@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom"
 import CustomLoader from "./CustomLoader"
 import ItemList from "./ItemList"
 import Page from "./Page"
-
+import Search from "../components/NavBar/Search"
+import Table from "./table/Table"
+import {Users} from "./Users"
 
 const productosIniciales = [
   {
@@ -281,9 +283,21 @@ const ItemListContainer = () => {
         )
     } else {
         return (
+            <>
+             
             <Page titulo="Catalogo" subtitulo="Todos los productos en un solo lugar">
-                <ItemList productos={productos} />
+                
             </Page>
+            <div className="container">
+                <Search/>
+                
+
+                <Table data={Users}/>
+
+            </div>
+            
+            </>
+            
         )
     }
 
