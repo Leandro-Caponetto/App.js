@@ -1,30 +1,20 @@
 
-import { NavLink } from "react-router-dom"
-import { useCarrito } from "../CartContext"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material'
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
+function Cart() {
 
-const Cart = () => {
-    
-    const { cantidad } = useCarrito()
-    
-    
- 
-    return (
-        
-             
-        <NavLink to="/cart">
-            <span className="material-symbols-outlined">
-                shopping_cart
-            </span>
-            {cantidad}
-            
-        </NavLink>
-    )
-            
-            
-           
-        
-   
+  const {getItemQty} = useContext(CartContext)
+
+  return (
+    <div>
+      <Badge badgeContent={getItemQty()} color="primary">
+        <ShoppingCartIcon />
+      </Badge>
+    </div >
+  )
 }
 
 export default Cart

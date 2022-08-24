@@ -38,11 +38,14 @@ body {
         text-decoration: none;
     }
 
-    nav a {
-        margin-left: 1rem;
+    a {
+        margin: 15px 12px;
     }
 }
 
+nav {
+    height: 80px;
+}
 
 .app {
     margin: 50px;

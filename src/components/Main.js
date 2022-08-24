@@ -17,10 +17,10 @@ const Main = () => {
         <main>
             <Routes>
                 <Route path="/" element={<Inicio/>}/>
-                <Route path="/" element={<ItemListContainer />}/>
+                <Route path="/category/:category" element={<ItemListContainer />}/>
                 
                 <Route path="/categoria/:id" element={<ItemListContainer/>}/>
-                <Route path="/detalle/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/item/:productid" element={<ItemDetailContainer/>}/>
                 <Route path="/cart" element={<Cart/>}/>
             </Routes>
         </main>

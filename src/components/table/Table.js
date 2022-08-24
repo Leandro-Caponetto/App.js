@@ -1,4 +1,5 @@
 const Table = ({ data }) => {
+  
     return (
       <div>
         <ul className="table ">

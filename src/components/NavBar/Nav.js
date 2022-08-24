@@ -1,24 +1,47 @@
-import {  NavLink,Link } from "react-router-dom"
-import CartWidget from "./CartWidget"
+import React, { useEffect, useState } from 'react'
+import { Navbar, Container, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import CartWidget from './CartWidget';
 
 
 
-const Nav = () => {
+const NavBar = () => {
+
+  const [navLinks, setNavLinks] = useState([]);
+  const url = "https://fakestoreapi.com/products/"
+
+  useEffect(() => {
+
+    fetch(url)
+    .then(respuesta => respuesta.json())
+    .then(parsedArray => parsedArray.map(x => x.category))
+    .then(uniqueArray => setNavLinks([...new Set(uniqueArray)]))
+
+}, [])
     
       return (
-        <nav >
-          
-          <Link to="/">
-                <h1 >TopShop</h1>
-            </Link>
+        <Navbar >
+          <Container>
+          <Nav className="col-xl-8 d-flex justify-content-evenly mx-auto">
+                
+            <Link to="/">Inicio</Link>
+            <Link to="/categoria/producto">Productos</Link>
+                  
+            {navLinks.map((element, index) => {
+                        return <Link to={`/category/${element}`} key={index}>{element}</Link>
+                    })}
             
-        <NavLink to="/">Inicio</NavLink>
-        <NavLink to="/categoria/producto">Productos</NavLink>
-        <CartWidget/>
-      </nav>
+                
+
+          </Nav>
+          <Link to={"/cart"}><CartWidget/></Link>
+          </Container>
+        
+        
+      </Navbar>
       
       )
     
   
 }
-export default Nav
+export default NavBar

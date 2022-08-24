@@ -1,34 +1,31 @@
-import { Link } from "react-router-dom"
-import { useContext } from "react"
-import Contador from "./Contador"
-import { contexto } from "./CartContext"
+import React from 'react'
 
-function ItemCount({item, producto }) {
-   
-  const { agregarProducto } = useContext(contexto)
-  
-  const onAdd = (contador) => {
-    //console.log("Producto a comprar : ")
-    //console.log(item)
-    //console.log("Cantidad a comprar : ")
-    //console.log(contador)
-    item.cantidad = contador
-    //enviarAlCarrito(item)
-    agregarProducto(producto)
-  }
+function ItemCount({ qty, setQty, stock, onAdd }) {
 
+    const handlerMinus = () => {
+        if (qty > 1) {
+            setQty(qty - 1)
+        }
+    }
 
-  return (
-        <article className="item">
-      <img src={producto.image} alt="" width={200}/>
-      <h2 className="item__title">{item.nombre}</h2>
-      <p>{producto.title}</p>
-      <p className="item__price">Precio : ${producto.price}</p>
-      <Link to={`/detalle/${producto.id}`} className="item__button">Agregar al carrito</Link>
-      <Link to={`/detalle/${producto.id}`} className="item__button">Borrar</Link>
-      <Contador onAdd={onAdd} />
-    </article>
-  )
+    const handlerPlus = () => {
+        if (qty < stock) {
+            setQty(qty + 1)
+        }
+    }
+
+    return (
+        <>
+            <div className='d-flex col-xl-6 justify-content-evenly mb-3'>
+                <button className={`btn ${qty > 1 ? "btn-success" : "btn-danger"}`} onClick={handlerMinus}>-</button>
+                <div>
+                    <p>{qty}</p>
+                </div>
+                <button className={`btn ${qty < stock ? "btn-success" : "btn-danger"}`} onClick={handlerPlus}>+</button>
+            </div>
+            <button className='btn btn-primary' onClick={() => {onAdd()}}>Agregar al carrito</button>
+        </>
+    )
 }
 
 export default ItemCount

@@ -1,36 +1,39 @@
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail"
+import CustomLoader from "./CustomLoader"
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState({});
-    const { id } = useParams();
-
-    useEffect(() => {
+    
+    const [detalle, setDetalle] = useState({})
+    const { productId } = useParams();
+   
 
         //https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe
-        const pedido = fetch("https://fakestoreapi.com/products/" + id)
+        const url = "https://fakestoreapi.com/products/" 
 
-        pedido
-            .then((respuesta) => {
-                return respuesta.json()
-            })
-            .then((respuesta) => {
-                setItem(respuesta)
-            })
-            .catch(error => console.log(error))
+  
+        useEffect(() => {
 
-    }, [id])
-
-
-    return (
-        <>
-            <div className='container'>
-                <ItemDetail item={item} />
-            </div>
-        </>
-    );
+            setTimeout(() => {
+    
+                fetch(url)
+                    .then(respuesta => respuesta.json())
+                    .then(pepe => setDetalle(pepe.find(x => x.id === productId)))
+    
+            }, 1000)
+    
+        }, [])
+    
+    
+        return (
+            <>
+            {Object.keys(detalle).length < 1
+            ? < CustomLoader color='#36D7B7'/>
+            : <ItemDetail detalle={detalle} /> }
+            </>
+        )
 }
 
 export default ItemDetailContainer;
