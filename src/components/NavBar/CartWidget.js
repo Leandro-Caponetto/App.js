@@ -12,7 +12,9 @@ function Cart() {
     <div>
       <Badge badgeContent={getItemQty()} color="primary">
         <ShoppingCartIcon />
+        
       </Badge>
+      
     </div >
   )
 }

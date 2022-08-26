@@ -1,15 +1,14 @@
-import Item from "./Item"
+import React from 'react'
+import Item from './Item'
 
-
-const ItemList = ({ productos }) => {
+function ItemList({ productsArray }) {
     return (
-        <section className="items">
-            {productos.map((producto) => {
-                return <Item key={producto.id} producto={producto}/>
+        <div className='row col-xl-11 mx-auto'>
+            {productsArray.map((element, index) => {
+                return <Item key={index} item={element} />
             })}
-            
-            
-        </section>
+        </div>
     )
 }
+
 export default ItemList

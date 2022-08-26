@@ -1,73 +1,57 @@
-import { useState } from "react"
-import Contador from "./Contador"
-import Page from "./Page"
-import Slider from "./Slider"
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../context/CartContext'
+import Checkout from './Checkout'
+function Cart() {
 
+    const [checkout, setCheckout] = useState(false)
 
+    const { cart, deleteItem, emptyCart } = useContext(CartContext)
 
-const Cart = () => {
+    if (cart.length > 0) {
+        return (
+            <div className='row col-xl-12'>
+                <div className='cartView col-xl-8'>
+                    {
+                        cart.map((element, index) => {
+                            return <div className='cartItem col-xl-6 d-flex align-items-center justify-content-evenly' key={index}>
+                                <div>
+                                    <img src={element.image} alt={element.title} width={150}></img>
+                                </div>
+                                <div>
+                                    <h3>{element.name}</h3>
+                                    <h2>Precio: ${element.price}</h2>
+                                    <h3>Unidades: {element.qty}</h3>
+                                </div>
+                                <div>
+                                    <button onClick={() => deleteItem(element.id)} className='btn btn-danger'>Delete</button>
+                                </div>
+                            </div>
+                        })
+                    }
+                    <button onClick={() => emptyCart()} className='btn btn-warning'>Vaciar Carrito</button>
+                </div>
 
-  const handleClickDiv = (e) => {
-    e.stopPropagation()
-    console.log("Click div")
-    console.log(e.currentTarget)
-  }
-
-  const handleChange = (e) => {
-    console.log(e.target)
-  }
-
-  /* const handleClick = () => {
-    console.log("Primero")
-    return () => {
-      console.log("Segundo")
+                { <div className='col-xl-4'>
+                    {
+                        !checkout
+                            ? <button onClick={() => setCheckout(true)} className='btn btn-success'>Ir al Checkout</button>
+                            : <Checkout />
+                    }
+                </div> }
+                <div>
+                    <Link to={'/checkout'}><button className='btn btn-success'>Ir al Checkout</button></Link>
+                </div>
+            </div>
+        )
     }
-  } */
 
-  //const res = handleClick()
-  //fn == operacion (1+1)
-  //return ==  resultado (2)
-
-  const handleClickDefault = (e) => {
-    e.preventDefault()
-    console.log("No redirecciono...")
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("validando...")
-  }
-
-  const handleKeyDown = (e) => {
-    console.log(e.key)
-    //e.preventDefault()
-  }
-
-  //State Uplifting 
-
-  const [estadoPadre, setEstadoPadre] = useState(0)
-
-  const customMethod = (param) => {
-    setEstadoPadre(param)
-  }
-
-  return (
-    <Page titulo="Carrito" subtitulo="Compra y vende">
-
-      <p id="parrafo">El Contador va : {estadoPadre}</p>
-
-      <Contador estadoPadre={estadoPadre} customMethod={customMethod} />
-
-      {/* <Slider estadoPadre={estadoPadre} setEstadoPadre={setEstadoPadre}/> */}
-
-
-      {/*  <a onClick={handleClickDefault} href="http://google.com">click</a> */}
-      {/* <form onSubmit={handleSubmit}>
-        <input type="text" onKeyDown={handleKeyDown} onChange={handleChange} />
-        <button>click</button>
-      </form> */}
-    </Page>
-  )
+    return (
+        <div>
+            <h1>Este es tu carrito</h1>
+            <Link to={'/'}><button className='btn btn-success'>Ir a la Home</button></Link>
+        </div>
+    )
 }
 
 export default Cart

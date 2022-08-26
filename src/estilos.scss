@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-html , body , #root {
+html , .body , #root {
     height: 100%;
 }
 
@@ -13,7 +13,7 @@ html , body , #root {
     flex-direction: column;
 }
 
-body {
+.body {
     background-color: #22243b;  
     color: rgb(255, 255, 255);  
     font-family: Arial;  
@@ -28,7 +28,7 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     align-items: center;
 
-    &__image {
+    .header_image {
         width: 24px;
         height: 24px;
     }
@@ -95,6 +95,10 @@ main {
     margin: 0 auto;
     padding-top: 9rem ;
 }
+.inicio a {
+    text-decoration: none;
+    list-style: none;
+}
 .inicio h1{
     font-size: 2.5rem;
     color: #08a05c;
@@ -131,14 +135,36 @@ main {
     }
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    background-color: red;
+.tarjetas {
+    border: 1px solid #e2e2e2;
 }
+
+.detailView {
+    height: 80vh;
+    
+    & .detailTitle {
+        font-weight: bolder;
+    }
+
+    
+
+}
+.cartView {
+    min-height: 100vh;
+    height: auto;
+    background-color: #F0F0F0;
+    padding-top: 30px;
+    
+    & .cartItem {
+        background-color: #fff;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 30px 15px;
+    }
+}
+
+
+
 
 
 
@@ -169,7 +195,9 @@ ul {list-style: none;}
     color: red;
     margin-bottom: 20px;
 }
-
+.table p {
+    color: #fff;
+}
 .todomal {
     color: red;
 }

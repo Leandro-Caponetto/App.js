@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget';
+import {contador} from '../Contador'
+
 
 
 
@@ -25,7 +27,7 @@ const NavBar = () => {
           <Nav className="col-xl-8 d-flex justify-content-evenly mx-auto">
                 
             <Link to="/">Inicio</Link>
-            <Link to="/categoria/producto">Productos</Link>
+            
                   
             {navLinks.map((element, index) => {
                         return <Link to={`/category/${element}`} key={index}>{element}</Link>
@@ -36,7 +38,7 @@ const NavBar = () => {
           </Nav>
           <Link to={"/cart"}><CartWidget/></Link>
           </Container>
-        
+         
         
       </Navbar>
       
