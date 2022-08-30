@@ -1,0 +1,25 @@
+.tarjetas {
+    border: 1px solid #e2e2e2;
+}
+
+.detailView {
+    height: 80vh;
+}
+
+.detailTitle {
+    font-weight: bolder;
+}
+
+.cartView {
+    min-height: 100vh;
+    height: auto;
+    background-color: #F0F0F0;
+    padding-top: 30px;
+}
+
+.cartItem {
+    background-color: #fff;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 30px 15px;
+}

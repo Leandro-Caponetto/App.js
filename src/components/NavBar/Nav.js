@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget';
-import {contador} from '../Contador'
+
 
 
 

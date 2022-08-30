@@ -5,11 +5,12 @@ function Item({ item }) {
     return (
         <div className='tarjetas col-xl-3 mx-auto my-5 d-flex flex-column align-items-center'>
             <img className='col-xl-10' src={item.image} alt={item.name}></img>
-            { <h4>ID: {item.id} </h4> }
-            <h4>Nombre: {item.title}</h4>
-            <h4>Categoría: {item.category}</h4>
-            <h4>Precio: {item.price}</h4>
-            <h4>Stock: {item.stock}</h4>
+            
+            <h4><span className='span'>Nombre:</span>  {item.title}</h4>
+            <p><span className='span'>Categoría:</span>  {item.category}</p>
+            <p><span className='span'>Descripción:</span>{item.description}</p>
+            <p><span className='span'>Precio:</span>  {item.price}</p>
+            <p><span className='span'>Stock:</span>  {item.stock}</p>
             <Link to={`/item/${item.id}`} className="btn btn-success">Ver más</Link>
         </div>
     )

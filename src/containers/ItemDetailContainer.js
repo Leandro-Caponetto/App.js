@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import ItemDetail from '../components/ItemDetail';
-import CustomLoader from "../components/CustomLoader"
 
-function ItemDetailContainer() {
+import { useEffect, useState } from "react";
+import ItemDetail from "../components/ItemDetail"
+import { useParams } from "react-router-dom";
+import { db } from "../firebase"
+import { collection , getDoc , doc } from "firebase/firestore"
 
+
+const ItemDetailContainer = () => {
+    
     const [item, setItem] = useState({});
-
-    const { productId } = useParams();
-
-    const url = "https://fakestoreapi.com/products/";
-
+    const { id } = useParams();
+    
     useEffect(() => {
+        
+        const productosCollection = collection(db, "productos") 
+        const referencia = doc(productosCollection,id) 
+        const consulta = getDoc(referencia) 
 
-        setTimeout(() => {
+        consulta
+        .then((res)=>{
+            setItem(res.data())
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 
-            fetch(url)
-                .then(respuesta => respuesta.json())
-                .then(pepe => setItem(pepe.find(x => x.id === productId)))
-
-        }, 1000)
-
-    }, [])
+    }, [id])
 
 
     return (
         <>
-        {Object.keys(item).length < 1
-        ? <CustomLoader color='#36D7B7'/>
-        : <ItemDetail item={item} /> }
+            <div className='container'>
+                <ItemDetail item={item} />
+            </div>
         </>
-    )
+    );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

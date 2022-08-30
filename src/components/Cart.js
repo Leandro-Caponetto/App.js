@@ -1,25 +1,25 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
-import Checkout from './Checkout'
+
 function Cart() {
 
-    const [checkout, setCheckout] = useState(false)
+    
 
     const { cart, deleteItem, emptyCart } = useContext(CartContext)
 
     if (cart.length > 0) {
         return (
             <div className='row col-xl-12'>
-                <div className='cartView col-xl-8'>
+                <div className=' justify-content-center caja'>
                     {
                         cart.map((element, index) => {
-                            return <div className='cartItem col-xl-6 d-flex align-items-center justify-content-evenly' key={index}>
+                            return <div className='cartItem col-xl-6 d-flex align-items-center justify-content-evenly carrito' key={index}>
                                 <div>
                                     <img src={element.image} alt={element.title} width={150}></img>
                                 </div>
                                 <div>
-                                    <h3>{element.name}</h3>
+                                    <h3>{element.title}</h3>
                                     <h2>Precio: ${element.price}</h2>
                                     <h3>Unidades: {element.qty}</h3>
                                 </div>
@@ -32,14 +32,8 @@ function Cart() {
                     <button onClick={() => emptyCart()} className='btn btn-warning'>Vaciar Carrito</button>
                 </div>
 
-                { <div className='col-xl-4'>
-                    {
-                        !checkout
-                            ? <button onClick={() => setCheckout(true)} className='btn btn-success'>Ir al Checkout</button>
-                            : <Checkout />
-                    }
-                </div> }
-                <div>
+               
+                <div className='btnCheckout'>
                     <Link to={'/checkout'}><button className='btn btn-success'>Ir al Checkout</button></Link>
                 </div>
             </div>

@@ -3,47 +3,92 @@ import { useParams } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 import ItemList from '../components/ItemList'
 import CustomLoader from "../components/CustomLoader"
+import {collection,  getDocs, query , where } from "firebase/firestore"
+import { db } from "../firebase"
+import Toast from 'react-bootstrap/Toast';
 
 
-function ItemListContainer({ greeting }) {
 
-    const [products, setProducts] = useState([])
 
-    const { categorias } = useParams();
 
-    const url = "https://fakestoreapi.com/products/";
+
+
+
+const ItemListContainer = ({ greeting }) => {
+
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
+    const { categorias } = useParams()
 
     useEffect(() => {
-
-        setTimeout(() => {
-            fetch(url)
-                .then((respuesta) => respuesta.json())
-                .then((array) => {
-                    if (!categorias) {
-                        setProducts(array)
-                    } else {
-                        setProducts(array.filter(x => x.category === categorias))
+        if(!categorias){
+            const productosCollection = collection(db, "productos")
+            const consulta = getDocs(productosCollection)
+    
+            consulta
+            .then(snapshot=>{
+               
+                const productos = snapshot.docs.map(doc=>{
+                    return {
+                        ...doc.data(),
+                        id: doc.id
                     }
-                }
-                )
-        }, 100)
-
+                })
+                setProductos(productos)
+                setLoading(false)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        }else{
+            const productosCollection = collection(db, "productos")
+            const filtro = query(productosCollection,
+                where("category","==",categorias),
+                where("stock",">",10))
+            const consulta = getDocs(filtro)
+    
+            consulta
+            .then(snapshot=>{
+                const productos = snapshot.docs.map(doc=>{
+                    return {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                })
+                setProductos(productos)
+                setLoading(false)
+            })
+            .catch(err=>{
+                
+                <Toast>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                        <strong className="me-auto">TOPSHOP</strong>
+                        <small>11 mins ago</small>
+                    </Toast.Header>
+                    <Toast.Body>ERROR .</Toast.Body>
+                </Toast>
+            })
+        }
     }, [categorias])
 
 
-    return (
-        <div>
-            
+    if (loading) {
+        return (
+            <CustomLoader />
+        )
+    } else {
+        return (
+            <>
             <Row>
                 <Col xl={6} className="mx-auto mt-5 text-center"><h1>{greeting}</h1></Col>
             </Row>
+            <ItemList productsArray={productos} />
+            </>
+            
+        )
+    }
 
-            {(products.length > 1)
-                ? <ItemList productsArray={products} />
-                : <CustomLoader color='#36D7B7' />}
-                
-        </div>
-    )
 }
 
 export default ItemListContainer
