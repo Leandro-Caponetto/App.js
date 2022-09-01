@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
             setItem(res.data())
         })
         .catch((err) => {
-            console.log(err)
+            
         })
 
     }, [id])

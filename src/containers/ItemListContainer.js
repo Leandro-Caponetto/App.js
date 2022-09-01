@@ -18,10 +18,10 @@ const ItemListContainer = ({ greeting }) => {
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
-    const { categorias } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        if(!categorias){
+        if(!id){
             const productosCollection = collection(db, "productos")
             const consulta = getDocs(productosCollection)
     
@@ -43,7 +43,7 @@ const ItemListContainer = ({ greeting }) => {
         }else{
             const productosCollection = collection(db, "productos")
             const filtro = query(productosCollection,
-                where("category","==",categorias),
+                where("category","==",id),
                 where("stock",">",10))
             const consulta = getDocs(filtro)
     
@@ -70,7 +70,7 @@ const ItemListContainer = ({ greeting }) => {
                 </Toast>
             })
         }
-    }, [categorias])
+    }, [id])
 
 
     if (loading) {

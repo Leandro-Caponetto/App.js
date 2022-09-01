@@ -29,9 +29,9 @@ html , .body , #root {
     align-items: center;
     margin-bottom: 50px;
 
-    .header_image {
-        width: 24px;
-        height: 24px;
+    & .header__titulo{
+        position: relative;
+        right: 250px;
     }
 
     a {
@@ -45,6 +45,7 @@ html , .body , #root {
     a {
         margin: 15px 12px;
     }
+    
 }
 
 nav {
@@ -94,22 +95,7 @@ main {
     text-align: left;
 }
 
-.inicio{
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 9rem ;
-}
-.inicio a {
-    text-decoration: none;
-    list-style: none;
-}
-.inicio h1{
-    font-size: 2.5rem;
-    color: #08a05c;
-}
-.inicio img{
-    width: 100%;
-}
+
 .item {
     color :#22243b;
     background-color: #fff;
@@ -172,47 +158,7 @@ main {
 
 
 
-.loader {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-}
 
-.page__header {
-    margin-bottom: 3rem;
-}
-
-ul {list-style: none;}
-
-.detail-image {
-    max-width: 300px;
-    height: auto;
-}
-.container {
-    display: flex;
-    gap: 20px;
-}
-.table {
-    margin-top: 100px;
-}
-.table h3 {
-    color: red;
-    margin-bottom: 20px;
-}
-.table p {
-    color: #fff;
-}
-.todomal {
-    color: red;
-}
-.btn {
-    background: #08a05c;
-    padding: 10px;
-    margin: 0 5px;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-}
 .caja {
     background-color: white;
     color: #22243b;

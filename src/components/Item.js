@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 function Item({ item }) {
     return (
         <div className='tarjetas col-xl-3 mx-auto my-5 d-flex flex-column align-items-center'>
-            <img className='col-xl-10' src={item.image} alt={item.name}></img>
+            <img className='col-xl-10' src={item.image} alt={item.title}></img>
             
             <h4><span className='span'>Nombre:</span>  {item.title}</h4>
             <p><span className='span'>Categoría:</span>  {item.category}</p>

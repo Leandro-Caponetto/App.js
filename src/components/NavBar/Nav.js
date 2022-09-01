@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget';
@@ -6,32 +6,44 @@ import CartWidget from './CartWidget';
 
 
 
+const categories = [{
+  categoryId: "women",
+  name: "Women"
+},
+{
+  categoryId: "men",
+  name: "Men"
+},{
+  categoryId: "electronics",
+  name: "Electronics"
+},{
+  categoryId: "jewelery",
+  name: "Jewelery"
+}]
+
+
 
 const NavBar = () => {
 
-  const [navLinks, setNavLinks] = useState([]);
-  const url = "https://fakestoreapi.com/products/"
+  return (
 
-  useEffect(() => {
-
-    fetch(url)
-    .then(respuesta => respuesta.json())
-    .then(parsedArray => parsedArray.map(x => x.category))
-    .then(uniqueArray => setNavLinks([...new Set(uniqueArray)]))
-
-}, [])
     
-      return (
-        <Navbar >
+
+    <Navbar className="header">
           <Container>
+
+            
           <Nav className="col-xl-8 d-flex justify-content-evenly mx-auto">
+          <Link to="/">
+                <h1 className="header__titulo" >TOPSHOP</h1>
+            </Link>
                 
             <Link to="/">Inicio</Link>
             
                   
-            {navLinks.map((element, index) => {
-                        return <Link to={`/category/${element}`} key={index}>{element}</Link>
-                    })}
+            {categories.map( category => <Link to={`/category/${category.categoryId}`}>
+                    <p>{category.name}</p>
+                    </Link>)}
             
                 
 
@@ -41,8 +53,8 @@ const NavBar = () => {
          
         
       </Navbar>
-      
-      )
+)
+  
     
   
 }

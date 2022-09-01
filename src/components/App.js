@@ -3,10 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Cart from './Cart';
 import Checkout from './Checkout';
-import Header from "./Header"
+
 import ItemDetailContainer from '../containers/ItemDetailContainer';
 import ItemListContainer from '../containers/ItemListContainer'
 import MyProvider from '../context/CartContext';
+import NavBar from './NavBar/Nav';
 
 
 
@@ -17,14 +18,14 @@ const App = () => {
      
       <BrowserRouter>
       <MyProvider>
-        <Header/>
+        <NavBar/>
         <Routes>
-        <Route path="/" element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"}/>}/>
+        <Route exact path="/" element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"}/>}/>
           
-          <Route path='/category/:categorias' element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"} />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout' element={<Checkout/>}/>
+          <Route exact path='/category/:categor' element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"} />} />
+          <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+          <Route exact path='/cart' element={<Cart/>}/>
+          <Route exact path='/checkout' element={<Checkout/>}/>
         </Routes>
       </MyProvider>
     </BrowserRouter>
