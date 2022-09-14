@@ -18,12 +18,16 @@ const ItemDetailContainer = () => {
         const consulta = getDoc(referencia) 
 
         consulta
-        .then((res)=>{
-            setItem(res.data())
+
+        .then((_res_)=>{
+
+        setItem({id:_res_.id,..._res_.data() });
+
         })
-        .catch((err) => {
-            
-        })
+
+        .catch((_err_)=>{
+
+        });
 
     }, [id])
 

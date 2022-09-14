@@ -4,20 +4,19 @@ import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget';
 
 
-
-
 const categories = [{
-  categoryId: "women",
+  
+  category: "women",
   name: "Women"
 },
 {
-  categoryId: "men",
+  category: "men",
   name: "Men"
 },{
-  categoryId: "electronics",
+  category: "electronics",
   name: "Electronics"
 },{
-  categoryId: "jewelery",
+  category: "jewelery",
   name: "Jewelery"
 }]
 
@@ -29,11 +28,11 @@ const NavBar = () => {
 
     
 
-    <Navbar className="header">
+    <Navbar sticky="top"className="header">
           <Container>
 
             
-          <Nav className="col-xl-8 d-flex justify-content-evenly mx-auto">
+          <Nav className="col-xl-8 d-flex justify-content-evenly mx-auto ">
           <Link to="/">
                 <h1 className="header__titulo" >TOPSHOP</h1>
             </Link>
@@ -41,7 +40,7 @@ const NavBar = () => {
             <Link to="/">Inicio</Link>
             
                   
-            {categories.map( category => <Link to={`/category/${category.categoryId}`}>
+            {categories.map( category => <Link to={`/category/${category.category}`}>
                     <p>{category.name}</p>
                     </Link>)}
             

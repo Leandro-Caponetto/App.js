@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Cart from './Cart';
 import Checkout from './Checkout';
-
 import ItemDetailContainer from '../containers/ItemDetailContainer';
 import ItemListContainer from '../containers/ItemListContainer'
 import MyProvider from '../context/CartContext';
@@ -22,7 +21,7 @@ const App = () => {
         <Routes>
         <Route exact path="/" element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"}/>}/>
           
-          <Route exact path='/category/:categor' element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"} />} />
+          <Route exact path='/category/:id' element={<ItemListContainer greeting={"Bienvenido a mi Tienda Online"} />} />
           <Route exact path='/item/:id' element={<ItemDetailContainer />} />
           <Route exact path='/cart' element={<Cart/>}/>
           <Route exact path='/checkout' element={<Checkout/>}/>

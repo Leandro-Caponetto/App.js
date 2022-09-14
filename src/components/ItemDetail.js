@@ -20,8 +20,9 @@ function ItemDetail({item }) {
                 <img className='col-xl-8' src={item.image} alt={item.name}></img>
             </div>
             <div className='col-xl-3 d-flex flex-column align-items-center justify-content-center'>
-                <h3 className='detailTitle'>{item.name}</h3>
+                <h3 className='detailTitle'>{item.title}</h3>
                 <h3>Categoria: {item.category}</h3>
+                <p><span className='span'>Descripción:</span>{item.description}</p>
                 <h3>${item.price}</h3>
                 <h3>Unidades disponibles: {item.stock}</h3>
             </div>

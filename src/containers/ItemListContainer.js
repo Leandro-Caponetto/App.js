@@ -43,8 +43,8 @@ const ItemListContainer = ({ greeting }) => {
         }else{
             const productosCollection = collection(db, "productos")
             const filtro = query(productosCollection,
-                where("category","==",id),
-                where("stock",">",10))
+                where("category","==",id))
+                
             const consulta = getDocs(filtro)
     
             consulta

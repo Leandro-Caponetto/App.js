@@ -9,6 +9,7 @@ const MyProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
     
+    
     const isInCart = (id) => {
         return cart.some(x => x.id === id)
     }
@@ -20,7 +21,7 @@ const MyProvider = ({ children }) => {
             qty
         }
 
-        if (isInCart(newItem.id)) {
+        if (isInCart(item.id)) {
             const findProduct = cart.find(x => x.id === newItem.id)
             const productIndex = cart.indexOf(findProduct)
             const auxArray = [...cart]

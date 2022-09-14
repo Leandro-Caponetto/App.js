@@ -29,6 +29,7 @@ html , .body , #root {
     align-items: center;
     margin-bottom: 50px;
 
+   
     & .header__titulo{
         position: relative;
         right: 250px;
@@ -62,12 +63,7 @@ nav {
    
 }
   
-  
-.search {
-    padding: 10px;
-    font-size: 20px;
-}
-  
+ 
 .list {
     padding: 0;
     list-style: none;
@@ -89,11 +85,6 @@ nav {
     margin-top: 1rem;
 }
 
-main {
-    padding: 1rem;
-    flex-grow: 1;
-    text-align: left;
-}
 
 
 .item {
@@ -167,6 +158,19 @@ main {
 }
 .carrito {
     color: #22243b;
+
+    & .img {
+        border-right: 1px #22243b solid;
+        
+    }
+    
+}
+.uni {
+    border-bottom: 1px #22243b6b solid;
+}
+
+.vaciar{
+    margin: 20px 20px;
 }
 
 /* ItemColection*/
@@ -175,4 +179,28 @@ main {
 }
 .span{
     color: red;
+}
+
+.card{
+    
+    color: #22243b;
+    margin: 10px 10px;
+}
+
+form {
+    margin: 10px;
+    border: 1px red solid;
+    padding: 10px;
+    &:hover{
+        
+        border: 2px rgb(64, 145, 64) solid;
+    }
+    
+    input {
+        margin: 10px 10px;
+        border: 1px red solid;
+        &:hover{
+            border: 3px rgb(64, 145, 64) solid;
+        }
+    }
 }
